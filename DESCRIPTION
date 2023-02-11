@@ -1,10 +1,16 @@
 Package: TADCompare
 Title: TADCompare: Identification and characterization of differential TADs
-Version: 1.9.0
-Author:
-    Kellen Cresswell <cresswellkg@vcu.edu>,
-    Mikhail Dozmorov <mikhail.dozmorov@vcuhealth.org>
-Maintainer: Kellen Cresswell <cresswellkg@vcu.edu>
+Version: 1.5.0
+Authors@R: c(
+    person(given = "Mikhail",
+           family = "Dozmorov",
+           role = c("aut", "cre"),
+           email = "mikhail.dozmorov@gmail.com",
+           comment = c(ORCID = "0000-0002-0086-8358")),
+    person(given = "Kellen",
+           family = "Cresswell",
+           role = c("aut"))
+           )
 Description: 
     TADCompare is an R package designed to identify and characterize differential Topologically Associated 
     Domains (TADs) between multiple Hi-C contact matrices. It contains 
