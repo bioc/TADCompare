@@ -14,7 +14,7 @@
 #' @param resolution Resolution of the data. Used to assign TAD boundaries
 #' to genomic regions. If not provided, resolution will be estimated from
 #' column names of matrix. If matrices are sparse, resolution will be estimated
-#' from the column names of the transformed full matrix. Default is "auto"
+#' from the column names of the transformed full matrix. Default is "auto". Obsolete
 #' @param z_thresh Threshold for differential boundary score. Higher values
 #' result in a higher threshold for differential TAD boundaries. Default is 2.
 #' @param  window_size Size of sliding window for TAD detection, measured in bins.
@@ -269,7 +269,7 @@ TADCompare = function(cont_mat1,
 
     #Repeat for matrix 2
 
-    Eigen2 = eigs_sym(sub_mat2, NEig = 2)
+    Eigen2 = PRIMME::eigs_sym(sub_mat2, NEig = 2)
 
     eig_vals2 = Eigen2$values
     eig_vecs2 = Eigen2$vectors
