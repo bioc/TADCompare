@@ -4,6 +4,8 @@
 #' @import magrittr
 #' @import PRIMME
 #' @import ggplot2
+#' @import Matrix
+#' @import cluster
 #' @param cont_mat1 Contact matrix in either sparse 3 column, n x n or
 #' n x (n+3) form where the first three columns are coordinates in BED format. 
 #' See "Input_Data" vignette for more information. 
