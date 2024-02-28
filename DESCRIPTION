@@ -1,6 +1,6 @@
 Package: TADCompare
 Title: TADCompare: Identification and characterization of differential TADs
-Version: 1.13.0
+Version: 1.13.1
 Authors@R: c(
     person(given = "Mikhail",
            family = "Dozmorov",
@@ -20,7 +20,6 @@ Description:
     comprehensive, easy to analyze results.
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.1.1
 LazyData: true
 Imports: 
     dplyr,
@@ -44,9 +43,12 @@ Suggests:
     covr,
     pheatmap,
     rGREAT,
-    SpectralTAD
+    SpectralTAD,
+    magick,
+    qpdf
 Depends: R (>= 4.0) 
 VignetteBuilder: knitr
 biocViews: Software, HiC, Sequencing, FeatureExtraction, Clustering
 BugReports: https://github.com/dozmorovlab/TADCompare/issues
 URL: https://github.com/dozmorovlab/TADCompare
+RoxygenNote: 7.3.1
