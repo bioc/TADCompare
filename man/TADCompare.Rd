@@ -27,7 +27,7 @@ must be in same format as cont_mat1. Required.}
 \item{resolution}{Resolution of the data. Used to assign TAD boundaries
 to genomic regions. If not provided, resolution will be estimated from
 column names of matrix. If matrices are sparse, resolution will be estimated
-from the column names of the transformed full matrix. Default is "auto"}
+from the column names of the transformed full matrix. Default is "auto". Obsolete}
 
 \item{z_thresh}{Threshold for differential boundary score. Higher values
 result in a higher threshold for differential TAD boundaries. Default is 2.}
