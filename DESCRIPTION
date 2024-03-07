@@ -1,6 +1,6 @@
 Package: TADCompare
 Title: TADCompare: Identification and characterization of differential TADs
-Version: 1.13.2
+Version: 1.13.3
 Authors@R: c(
     person(given = "Mikhail",
            family = "Dozmorov",
@@ -33,8 +33,7 @@ Imports:
     ggpubr,
     RColorBrewer,
     reshape2,
-    cowplot,
-    rGREAT
+    cowplot
 Suggests: 
     BiocStyle,
     knitr,

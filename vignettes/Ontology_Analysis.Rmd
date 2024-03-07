@@ -41,7 +41,7 @@ Using the output of `TADCompare` and `TimeCompare`, we can do a range of analyse
 
 In the first example, we show how to perform gene ontology enrichment using differential boundaries. Here, we perform the analysis on shifted boundaries detected in matrix 1.
 
-```{r, warning=FALSE, message = FALSE}
+```{r, warning=FALSE, message = FALSE, eval=FALSE}
 library(rGREAT)
 # Reading in data
 data("rao_chr22_prim")
@@ -77,11 +77,21 @@ enrichment_table <- bind_rows(enrichment_table, .id = "source") %>%
 head(enrichment_table %>% dplyr::arrange(`P-value`))
 ```
 
+```
+               Ontology                                          Description     P-value
+1 GO Molecular Function                   gamma-glutamyltransferase activity 0.001802360
+2 GO Biological Process                     glutathione biosynthetic process 0.002927596
+3 GO Cellular Component         anchored to external side of plasma membrane 0.003152529
+4 GO Cellular Component        intrinsic to external side of plasma membrane 0.004051881
+5 GO Biological Process                         peptide biosynthetic process 0.004725996
+6 GO Molecular Function transferase activity, transferring amino-acyl groups 0.004950625
+```
+
 The first column, "Ontology", is simply the domain from which the corresponding ontology ("Description" column) comes from. Here, we use the default, which is the GO ontologies. For more available ontologies, see the [rGREAT vignette](https://bioconductor.org/packages/release/bioc/vignettes/rGREAT/inst/doc/rGREAT.html). "Description" is the pathway itself. "P-value" is the unadjusted hypergeometric p-value, as output by `rGREAT`. `rGREAT` also provides binomial p-values (Binom_Raw_Pvalue, Binom_Adjp_BH) and adjusted hypergeometric p-values (Hyper_Adjp_BH). 
 
 Now we demonstrate how to perform the same analysis but for all boundary types simultaneously. In this case, we use time-varying data. 
 
-```{r, warning=FALSE, message = FALSE}
+```{r, warning=FALSE, message = FALSE, eval=FALSE}
 # Read in time course data
 data("time_mats")
 # Identifying boundaries
@@ -120,6 +130,16 @@ enrichment_table <- bind_rows(TAD_Enrich) %>%
 
 # Get the top enriched pathways
 head(enrichment_table %>% dplyr::arrange(`P-value`))
+```
+
+```
+               Ontology                                              Description      P-value            Category
+1 GO Biological Process positive regulation of B cell receptor signaling pathway 0.0002254283         Dynamic TAD
+2 GO Molecular Function                               lipid transporter activity 0.0003760684   Highly Common TAD
+3 GO Biological Process          regulation of B cell receptor signaling pathway 0.0004508185         Dynamic TAD
+4 GO Biological Process                               Schwann cell proliferation 0.0006761897 Early Appearing TAD
+5 GO Biological Process                            lipoprotein metabolic process 0.0007139088   Highly Common TAD
+6 GO Molecular Function        peptide-methionine (R)-S-oxide reductase activity 0.0009015354   Highly Common TAD
 ```
 
 These columns are the same as the differential analysis but with an extra column, "Category", indicating the type of time-varying TAD boundary. 
