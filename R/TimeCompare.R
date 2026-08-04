@@ -2,7 +2,6 @@
 #'
 #' @import dplyr
 #' @import magrittr
-#' @import PRIMME
 #' @importFrom HiCcompare sparse2full
 #' @param cont_mats List of contact matrices in either sparse 3 column,
 #' n x n or n x (n+3) form where the first three columns are coordinates in
@@ -48,7 +47,7 @@
 
 TimeCompare = function(cont_mats,
                        resolution,
-                      z_thresh = 2,
+                      z_thresh = 3,
                       window_size = 15,
                       gap_thresh = .2,
                       groupings = NULL) {
@@ -215,7 +214,7 @@ TimeCompare = function(cont_mats,
 
   #Pulling out consensus for classification
 
-  TAD_Iden = TAD_Frame[,c(-1, -ncol(TAD_Frame))]>3
+  TAD_Iden = TAD_Frame[,c(-1, -ncol(TAD_Frame))]>z_thresh
 
   #Classify time trends
   All_Non_TADs = apply(TAD_Iden, 1, function(x) all(x == FALSE))
@@ -282,7 +281,7 @@ TimeCompare = function(cont_mats,
 
   TAD_Frame_Sub = TAD_Frame %>%
     dplyr::filter_at(dplyr::vars(`Sample 1`:Consensus_Score),
-                     dplyr::any_vars(.>3))
+                     dplyr::any_vars(.>z_thresh))
 
   TAD_Sum = TAD_Frame_Sub %>% group_by(Category) %>% summarise(Count = n())
 
@@ -376,7 +375,7 @@ TimeCompare = function(cont_mats,
 
     #Get first two eigenvectors
 
-    Eigen1 = eigs_sym(sub_mat1, NEig = 2)
+    Eigen1 = get_eigs(sub_mat1, NEig = 2)
 
     #Pull out eigenvalues and eigenvectors
     eig_vals1 = Eigen1$values
