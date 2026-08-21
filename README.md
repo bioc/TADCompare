@@ -5,7 +5,7 @@ Cresswell, Kellen G., and Mikhail G. Dozmorov. “[TADCompare: An R Package for 
 # Installation
 
 ```
-install.packages(c('dplyr', 'PRIMME', 'cluster', 'Matrix', 'magrittr', 'HiCcompare'))
+install.packages(c('dplyr', 'cluster', 'Matrix', 'magrittr', 'HiCcompare'))
 
 if (!requireNamespace("BiocManager", quietly=TRUE))
     install.packages("BiocManager")
@@ -159,6 +159,5 @@ Suggestions for new features and bug reports are welcome. Please, create a new i
 # Contributors
 
 Authors: @cresswellkg (cresswellkg[at]vcu[dot]edu) & @mdozmorov (mikhail.dozmorov[at]vcuhealth[dot]org)
-
 
 
